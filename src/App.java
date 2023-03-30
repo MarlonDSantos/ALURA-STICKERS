@@ -23,6 +23,7 @@ public class App {
         var http = new ClienteHttp();
         String json = http.buscaDados(url);
 
+
         // exibir e manipular os dados
         List<Conteudo> conteudos = extrator.extraiConteudos(json);
 
@@ -32,12 +33,12 @@ public class App {
 
             Conteudo conteudo = conteudos.get(i);
 
-            InputStream inputStream = new URL(conteudo.urlImagem()).openStream();
-            String nomeArquivo = "saida/" + conteudo.titulo() + ".png";
+            InputStream inputStream = new URL(conteudo.getUrlImagem()).openStream();
+            String nomeArquivo = "saida/" + conteudo.getTitulo() + ".png";
 
             geradora.cria(inputStream, nomeArquivo);
 
-            System.out.println(conteudo.titulo());
+            System.out.println(conteudo.getTitulo());
             System.out.println();
 
         //for (Map<String,String> conteudo : listaConteudo) {
