@@ -12,11 +12,13 @@ public class App {
         //String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
         //String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2022-06-12&end_date=2022-06-14";
 
+        String url = "http://localhost:8080/linguagens";
+        ExtratorConteudo extrator = new ExtratorConteudoIMDB();
 
         API api = API.IMDB_TOP_SERIES;
 
-        String url = api.getUrl();
-        ExtratorConteudo extrator = api.getExtrator();
+        //String url = api.getUrl();
+        //ExtratorConteudo extrator = api.getExtrator();
 
         var http = new ClienteHttp();
         String json = http.buscaDados(url);
